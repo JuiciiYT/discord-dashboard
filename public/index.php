@@ -132,7 +132,10 @@ function session($key, $default=NULL) {
       <li class="center no-padding">
         <div class="indigo darken-2 white-text" style="height: 180px;">
           <div class="row">
-            <img class="circle responsive-img user-img" src="<?php if(session("access_token")) { $user=apiRequest($apiURLBase); echo 'https://' } ?>">
+            <img
+              src="<?php $user = apiRequest($apiURLBase); echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png';?>"
+              class="user-img circle responsive-img"
+            />
             <!-- https://images-ext-1.discordapp.net/external/WayQzrYuyCCljA_d6ZfgYGfY2BDBW0GvEos-TVbdnNQ/%3Fsize%3D1024/https/cdn.discordapp.com/icons/772550849893105686/4a08d0e4f82f136a17d56f5c5abd583b.webp-->
             <p id="name">
               <?php 
@@ -622,6 +625,6 @@ body {
   .user-img{
     margin-top:5%;
               width: 100;
-              height: 100;
+              height:100;
   }
 </style>
