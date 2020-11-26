@@ -132,11 +132,8 @@ function session($key, $default=NULL) {
       <li class="center no-padding">
         <div class="indigo darken-2 white-text" style="height: 180px;">
           <div class="row">
-            
-            <?php 
-              if(session('access_token')) {$user=apiRequest($apiURLBase); echo "<img class='circle responsive-img' height='100' src='https://cdn.discordapp.com/avatars/ " . }else { echo 'Not Logged In';}
-              ?>
-            <!-- https://images-ext-1.discordapp.net/external/WayQzrYuyCCljA_d6ZfgYGfY2BDBW0GvEos-TVbdnNQ/%3Fsize%3D1024/https/cdn.discordapp.com/icons/772550849893105686/4a08d0e4f82f136a17d56f5c5abd583b.webp -->
+            <img class="circle responsive-img user-img" src="<?php if(session("access_token")) { $user=apiRequest($apiURLBase); echo 'https://' } ?>">
+            <!-- https://images-ext-1.discordapp.net/external/WayQzrYuyCCljA_d6ZfgYGfY2BDBW0GvEos-TVbdnNQ/%3Fsize%3D1024/https/cdn.discordapp.com/icons/772550849893105686/4a08d0e4f82f136a17d56f5c5abd583b.webp-->
             <p id="name">
               <?php 
               if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Welcome, ' . $user->username . '';}else { echo 'Not Logged In';}
@@ -621,4 +618,10 @@ body {
     content:"This website is not avaliable for mobile devices";
   }
 }
+  
+  .user-img{
+    margin-top:5%;
+              width: 100;
+              height: 100;
+  }
 </style>
