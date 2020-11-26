@@ -14,6 +14,7 @@ $apiURLBase = 'https://discord.com/api/users/@me';
 
 session_start();
 
+
 // Start the login process by sending the user to Discord's authorization page
 if(get('action') == 'login') {
 
@@ -135,7 +136,7 @@ function session($key, $default=NULL) {
               style="margin-top: 5%;"
               width="100"
               height="100"
-              src="https://cdn.discordapp.com/avatars/774273563933802537/5ae219f7f63f8ff15345c562cf00d786.png"
+              src="https://cdn.discordapp.com/avatars/774273563933802537/5ae219f7f63f8ff15345c562cf00d786.png"<?php if(session('access_token')) {} else {echo print_r($user->avatar)}?>
               class="circle responsive-img"
             />
             <p id="name">
@@ -474,29 +475,7 @@ function session($key, $default=NULL) {
           <div class="col s12">
             <h5 class="white-text">Icon Credits</h5>
             <ul id="credits">
-              <li>
-                Gif Logo made using
-                <a
-                  href="https://formtypemaker.appspot.com/"
-                  title="Form Type Maker"
-                  >Form Type Maker</a
-                >
-                from
-                <a
-                  href="https://github.com/romannurik/FORMTypeMaker"
-                  title="romannurik"
-                  >romannurik</a
-                >
-              </li>
-              <li>
-                Icons made by <a href="https://material.io/icons/">Google</a>,
-                available under
-                <a
-                  href="https://www.apache.org/licenses/LICENSE-2.0"
-                  target="_blank"
-                  >Apache License Version 2.0</a
-                >
-              </li>
+
             </ul>
           </div>
         </div>
