@@ -53,7 +53,7 @@ if(get('code')) {
 
 
 
-if(get('action') == 'logout') {
+if(isset($_GET['logout']) && $_GET['logout'] == 'logout') {
   // This must to logout you, but it didn't worked(
 
   $params = array(
@@ -63,6 +63,7 @@ if(get('action') == 'logout') {
   // Redirect the user to Discord's revoke page
   header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($params));
   die();
+  header('Location: /');
 }
 
 function apiRequest($url, $post=FALSE, $headers=array()) {
