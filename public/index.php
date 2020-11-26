@@ -136,7 +136,7 @@ function session($key, $default=NULL) {
               style="margin-top: 5%;"
               width="100"
               height="100"
-              src=""
+              src="<?php $user = apiRequest($apiURLBase); echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png'?>"
               class="circle responsive-img"
             />
             <p id="name">
