@@ -136,7 +136,7 @@ function session($key, $default=NULL) {
               style="margin-top: 5%;"
               width="100"
               height="100"
-              src="https://cdn.discordapp.com/avatars/774273563933802537/5ae219f7f63f8ff15345c562cf00d786.png"<?php if(session('access_token')) {} else {echo print_r($user->avatar)}?>
+              src=""
               class="circle responsive-img"
             />
             <p id="name">
