@@ -61,7 +61,7 @@ if(isset($_GET['logout-submit']) && $_GET['logout-submit'] == 'logout') {
   );
 
   // Redirect the user to Discord's revoke page
-  header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($params));
+  header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($logout_token));
   die();
   header('Location: /');
 }
