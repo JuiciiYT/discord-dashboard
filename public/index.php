@@ -53,7 +53,7 @@ if(get('code')) {
 
 
 
-if(isset($_GET['logout']) && $_GET['logout'] == 'logout') {
+if(isset(get('action') == 'logout') {
   // This must to logout you, but it didn't worked(
 
   $params = array(
@@ -243,8 +243,8 @@ function session($key, $default=NULL) {
 
     <header>
       <ul class="dropdown-content" id="user_dropdown">
-        <li><a class="indigo-text" href="#!">Profile</a></li>
-        <li><a class="indigo-text" href="#!">Logout</a></li>
+        <li><a class="indigo-text" href=""></a></li>
+        
       </ul>
 
       <nav class="indigo" role="navigation">
