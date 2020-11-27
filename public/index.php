@@ -14,16 +14,16 @@ $apiURLBase = 'https://discord.com/api/users/@me';
 
 session_start();
 
-$params = array(
+
+// Start the login process by sending the user to Discord's authorization page
+if(get('action') == 'login') {
+
+  $params = array(
     'client_id' => OAUTH2_CLIENT_ID,
     'redirect_uri' => 'https://crystalline-giddy-newsprint.glitch.me/',
     'response_type' => 'code',
     'scope' => 'identify guilds email'
   );
-
-// Start the login process by sending the user to Discord's authorization page
-if(get('action') == 'login') {
-
 
   // Redirect the user to Discord's authorization page
   header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params));
@@ -54,6 +54,7 @@ if(get('code')) {
 
 
 if(isset($_GET['logout-submit']) && $_GET['logout-submit'] == 'logout') {
+  // This must to logout you, but it didn't worked(
 
   $params = array(
     'access_token' => $logout_token
@@ -62,6 +63,7 @@ if(isset($_GET['logout-submit']) && $_GET['logout-submit'] == 'logout') {
   // Redirect the user to Discord's revoke page
   header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($params));
   die();
+  header('Location: /');
 }
 
 function apiRequest($url, $post=FALSE, $headers=array()) {
@@ -240,9 +242,9 @@ function session($key, $default=NULL) {
     </ul>
 
     <header>
-     <ul class="dropdown-content" id="user_dropdown">
+      <ul class="dropdown-content" id="user_dropdown">
         <li><a class="indigo-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
-        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '<li><a class="indigo-text" href="?logout=logout">Logout</a></li>';}?>
+        <li><a class="indigo-text" href="?action=logout">Logout</a></li>
       </ul>
 
       <nav class="indigo" role="navigation">
