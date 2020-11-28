@@ -444,46 +444,25 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       <div class="container">
         <div class="row">
           <div class="col s12">
-            <h5 class="white-text">Icon Credits</h5>
-            <ul id="credits">
-              <?php use RestCord\DiscordClient;
+            <h5 class="white-text">Server Stats</h5>
+            <ul id="credits white" style="color:white;">
+              <?php
 
-$serverId = <YourGuildId>;
+    $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
+    $JSON = json_decode($jsonIn, true);
 
-$discord = new DiscordClient([
-    'token' => '<YourBotToken>'
-]);
+    $membersCount = count($JSON['vip']);
 
-$limit = 1000;
-$membercnt = 0;
-$_ids = array();
+    echo "Members Online: <strong>" . $membersCount . "</strong>";
+   ?><br><?php
 
-function getTotalUsersCount($ids, $limit, $serverId, $discord) {
-    if( count($ids) > 0 ) {
-        $last_id = max($ids);
-        $last_id = (int)$last_id;
-    } else {
-        $last_id = null;
-    }
-    $members = $discord->guild->listGuildMembers(['guild.id' => $serverId, 'limit' => $limit, 'after' => $last_id]);
-    $_ids = array();
-    foreach( $members as $member ) {
-        $ids[] = $member->user->id;
-        $_ids[] = $member->user->id;
-    }
+    $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
+    $JSON = json_decode($jsonIn, true);
 
-    if( count($_ids) > 0 ) {
-        return getTotalUsersCount($ids, $limit, $serverId, $discord);
-    } else {
-        return $ids;
-    }
-}
+    $membersCount = count($JSON['name']);
 
-$ids = getTotalUsersCount($_ids, $limit, $serverId, $discord);
-$membercnt = count($ids);
-
-echo "Member Count: " . $membercnt;
-              ?>
+    echo "Users Online: <strong>" . $membersCount . "</strong>";
+   ?>
             </ul>
           </div>
         </div>
