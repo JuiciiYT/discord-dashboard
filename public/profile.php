@@ -245,7 +245,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       <nav>
         <div class="nav-wrapper blurple darker-blurple">
           <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
-          <a class="breadcrumb" href="#!">Index</a>
+          <a class="breadcrumb" href="#!">Profile</a>
 
           <div style="margin-right: 20px;" id="timestamp" class="right"></div>
         </div>
@@ -254,177 +254,28 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
 
     <main class="">
       <div class="row">
-        <div class="col s6">
+        <div class="s6">
           <div style="padding: 35px;" align="center" class="card not-black">
             <div class="row">
               <div class="left card-title" style="color:white;">
-                <b>User Information</b>
+                <b>Profile Information</b>
               </div>
             </div>
 
             <div class="row">
-              <a href="#!" class="alt">
+              <div href="#!" class="alt">
                 <div
                   style="padding: 30px;"
-                  class="alt col s5 waves-effect"
+                  class="alt waves-effect"
                 >
-                  <i
-                    class="white-text text-lighten-1 large icon material-icons"
-                    >people</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Users</h5></span
-                  >
+                  <pre>
+                    
+                  </pre>
                 </div>
-              </a>
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!" class="alt">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i
-                    class="white-text text-lighten-1 large icon material-icons"
-                    >people</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Customer</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title" >
-                <b>Midi Management</b>
               </div>
             </div>
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >store</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Product</h5></span
-                  >
-                </div>
-              </a>
-
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="https://panel.helper.gg/" target="_blank">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >assignment</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Requests</h5></span
-                  >
-                </div>
-              </a>
-            </div>
           </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title">
-                <b>Brand Management</b>
-              </div>
-            </div>
-
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >local_offer</i
-                  >
-                  <span class="white-text text-lighten-1"><h5>Brand</h5></span>
-                </div>
-              </a>
-
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >loyalty</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Sub Brand</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title">
-                <b>Category Management</b>
-              </div>
-            </div>
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >view_list</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Category</h5></span
-                  >
-                </div>
-              </a>
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >view_list</i
-                  >
-                  <span class="truncate white-text text-lighten-1"
-                    ><h5>Sub Category</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- #23272A -->
       <div
         class="fixed-action-btn click-to-toggle"
         style="bottom: 45px; right: 24px;"
