@@ -451,7 +451,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
     $JSON = json_decode($jsonIn, true);
 
-    $membersCount = count($JSON['vip']);
+    $membersCount = count($JSON['members']);
 
     echo "Members Online: <strong>" . $membersCount . "</strong>";
    ?><br><?php
@@ -459,9 +459,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
     $JSON = json_decode($jsonIn, true);
 
-    $membersCount = count($JSON['name']);
+    $membersCount = count($JSON['channels']);
 
-    echo "Users Online: <strong>" . $membersCount . "</strong>";
+    echo "Verification Channels: <strong>" . $membersCount . "</strong>";
    ?>
             </ul>
           </div>
