@@ -455,14 +455,20 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
 
     echo "Members Online: <strong>" . $membersCount . "</strong>";
    ?><br><?php
+                                            foreach($widget->{'members'} as $user) {
+                                                echo '<img class="discord-avatar" src="' . $user->avatar_url . '">' . $user->username;
+					    	if(isset($user->bot)) {
+                                        	    echo '<span class="label label-bot">Bot</span>';
+                                        	} else if(isset($user->game) {
+                                            	    echo '<span class="pull-right"> Playing<i> ' . $user->game->name . '</i></span>';
+                                        	}
+                                                echo "<br />";
+                                            }
 
-    $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
-    $JSON = json_decode($jsonIn, true);
-
-    $membersCount = $JSON['members'];
-
-    echo 
-   ?>
+                                            if($widget->{'instant_invite'} != null) {
+                                                echo '<hr /><a href="' . $widget->{'instant_invite'} . '" class="btn btn-raised btn-success discord-join-button">Join us!</a>';
+                                            }
+                                        ?>
             </ul>
           </div>
         </div>
