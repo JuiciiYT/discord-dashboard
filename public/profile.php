@@ -267,7 +267,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
                   class="alt"
                 >
                   <code class="text-whiter">
-                    <pre>Username: <?php echo $user->username ?><br>Discriminator: <?php echo $user->discriminator ?><br>Full String: <?php echo $user->avatar ?>
+                    <pre>Username: <?php echo $user->username ?><br>Discriminator: <?php echo $user->discriminator ?><br>Avatar: <a href="<?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?>" target="_blank"><?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?><br><?php echo $user->?></a>
                     </pre>
                   </code>
                 </div>
