@@ -2,100 +2,71 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
-
 error_reporting(E_ALL);
-
 define('OAUTH2_CLIENT_ID', '781597589623144469');
 define('OAUTH2_CLIENT_SECRET', '5Z7yQ6nndvX_U_BTeJ7vJM-Bh4usGnBn');
-
-$authorizeURL = 'https://discord.com/api/oauth2/authorize';
-$tokenURL = 'https://discord.com/api/oauth2/token';
-$apiURLBase = 'https://discord.com/api/users/@me';
-
+$authorizeURL = 'https://discordapp.com/api/oauth2/authorize';
+$tokenURL = 'https://discordapp.com/api/oauth2/token';
+$apiURLBase = 'https://discordapp.com/api/users/@me';
+$revokeURL = 'https://discordapp.com/api/oauth2/token/revoke';
 session_start();
 
-
-// Start the login process by sending the user to Discord's authorization page
 if(get('action') == 'login') {
-
   $params = array(
     'client_id' => OAUTH2_CLIENT_ID,
     'redirect_uri' => 'https://crystalline-giddy-newsprint.glitch.me/',
     'response_type' => 'code',
     'scope' => 'identify guilds email'
   );
-
   // Redirect the user to Discord's authorization page
   header('Location: https://discordapp.com/api/oauth2/authorize' . '?' . http_build_query($params));
   die();
 }
-
-
-
-// When Discord redirects the user back here, there will be a "code" and "state" parameter in the query string
 if(get('code')) {
+    // Exchange the auth code for a token
+    $token = apiRequest($tokenURL, array(
+      "grant_type" => "authorization_code",
+      'client_id' => OAUTH2_CLIENT_ID,
+      'client_secret' => OAUTH2_CLIENT_SECRET,
+      'redirect_uri' => 'https://crystalline-giddy-newsprint.glitch.me/',
+      'code' => get('code')
+    ));
+    $logout_token = $token->access_token;
+    $_SESSION['access_token'] = $token->access_token;
+    header('Location: ' . $_SERVER['PHP_SELF']);
+  }
 
-  // Exchange the auth code for a token
-  $token = apiRequest($tokenURL, array(
-    "grant_type" => "authorization_code",
-    'client_id' => OAUTH2_CLIENT_ID,
-    'client_secret' => OAUTH2_CLIENT_SECRET,
-    'redirect_uri' => 'https://crystalline-giddy-newsprint.glitch.me/',
-    'code' => get('code')
-  ));
-  $logout_token = $token->access_token;
-  $_SESSION['access_token'] = $token->access_token;
-
-
-  header('Location: ' . $_SERVER['PHP_SELF']);
-}
-
-
-
-
-if(isset($_GET['logout-submit']) && $_GET['logout-submit'] == 'logout') {
-  // This must to logout you, but it didn't worked(
-
-  $params = array(
-    'access_token' => $logout_token
-  );
-
-  // Redirect the user to Discord's revoke page
-  header('Location: https://discordapp.com/api/oauth2/token/revoke' . '?' . http_build_query($logout_token));
-  die();
-  header('Location: /');
-}
+if(get('action') == 'logout') {
+    apiRequest($revokeURL, array(
+        'token' => session('access_token'),
+        'client_id' => OAUTH2_CLIENT_ID,
+        'client_secret' => OAUTH2_CLIENT_SECRET,
+      ));
+    unset($_SESSION['access_token']);
+    header('Location: ' . $_SERVER['PHP_SELF']);
+    die();
+  }
 
 function apiRequest($url, $post=FALSE, $headers=array()) {
-  $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-  $response = curl_exec($ch);
-
-
-  if($post)
-    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
-
-  $headers[] = 'Accept: application/json';
-
-  if(session('access_token'))
-    $headers[] = 'Authorization: Bearer ' . session('access_token');
-
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-  $response = curl_exec($ch);
-  return json_decode($response);
-}
-
-function get($key, $default=NULL) {
-  return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
-}
-
-function session($key, $default=NULL) {
-  return array_key_exists($key, $_SESSION) ? $_SESSION[$key] : $default;
-}
-
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($ch);
+    if($post)
+      curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+    $headers[] = 'Accept: application/json';
+    if(session('access_token'))
+      $headers[] = 'Authorization: Bearer ' . session('access_token');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    $response = curl_exec($ch);
+    return json_decode($response);
+  }
+  function get($key, $default=NULL) {
+    return array_key_exists($key, $_GET) ? $_GET[$key] : $default;
+  }
+  function session($key, $default=NULL) {
+    return array_key_exists($key, $_SESSION) ? $_SESSION[$key] : $default;
+  }
 ?>
 <!DOCUTYPE HTML>
 <html id="html">
@@ -244,7 +215,8 @@ function session($key, $default=NULL) {
     <header>
       <ul class="dropdown-content" id="user_dropdown">
         <li><a class="indigo-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
-        <li><a class="indigo-text" href="?action=logout">Logout</a></li>
+        
+        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='indigo-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
 
       <nav class="indigo" role="navigation">
@@ -474,7 +446,44 @@ function session($key, $default=NULL) {
           <div class="col s12">
             <h5 class="white-text">Icon Credits</h5>
             <ul id="credits">
+              <?php use RestCord\DiscordClient;
 
+$serverId = <YourGuildId>;
+
+$discord = new DiscordClient([
+    'token' => '<YourBotToken>'
+]);
+
+$limit = 1000;
+$membercnt = 0;
+$_ids = array();
+
+function getTotalUsersCount($ids, $limit, $serverId, $discord) {
+    if( count($ids) > 0 ) {
+        $last_id = max($ids);
+        $last_id = (int)$last_id;
+    } else {
+        $last_id = null;
+    }
+    $members = $discord->guild->listGuildMembers(['guild.id' => $serverId, 'limit' => $limit, 'after' => $last_id]);
+    $_ids = array();
+    foreach( $members as $member ) {
+        $ids[] = $member->user->id;
+        $_ids[] = $member->user->id;
+    }
+
+    if( count($_ids) > 0 ) {
+        return getTotalUsersCount($ids, $limit, $serverId, $discord);
+    } else {
+        return $ids;
+    }
+}
+
+$ids = getTotalUsersCount($_ids, $limit, $serverId, $discord);
+$membercnt = count($ids);
+
+echo "Member Count: " . $membercnt;
+              ?>
             </ul>
           </div>
         </div>
