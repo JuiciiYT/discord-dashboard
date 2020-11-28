@@ -461,7 +461,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
 
     $membersCount = $JSON['members'];
 
-    echo $membersCount
+    echo 
    ?>
             </ul>
           </div>
