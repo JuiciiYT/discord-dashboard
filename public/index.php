@@ -80,8 +80,8 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     <!-- import js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
     <script type="module">
-      import discord.js from 'https://cdn.skypack.dev/discord.js@12.5.1';
-      const Discord = require('discord.js')
+      import discordJs from 'https://cdn.skypack.dev/discord.js@12.5.1';
+      const Discord = require('discordJs')
       const client = new Discord.Client()
       document.getElementById("smthn").innerHTML = client.guilds.cache.size
     </script>
@@ -271,7 +271,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           <div style="padding: 35px;" align="center" class="card">
             <div class="row">
               <div class="left card-title">
-                <b>User Management</b>
+                <b>User Information</b>
               </div>
             </div>
 
@@ -283,10 +283,10 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
                 >
                   <i
                     class="indigo-text text-lighten-1 large icon material-icons"
-                    >person</i
+                    >people</i
                   >
                   <span class="indigo-text text-lighten-1"
-                    ><h5>Seller</h5></span
+                    ><h5>Users</h5></span
                   >
                 </div>
               </a>
@@ -315,7 +315,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           <div style="padding: 35px;" align="center" class="card">
             <div class="row">
               <div class="left card-title">
-                <b>Product Management</b>
+                <b>Midi Management</b>
               </div>
             </div>
             <div class="row">
@@ -336,7 +336,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <div class="col s1">&nbsp;</div>
               <div class="col s1">&nbsp;</div>
 
-              <a href="#!">
+              <a href="https://panel.helper.gg/" target="_blank">
                 <div
                   style="padding: 30px;"
                   class="grey lighten-3 col s5 waves-effect"
@@ -345,7 +345,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
                     >assignment</i
                   >
                   <span class="indigo-text text-lighten-1"
-                    ><h5>Orders</h5></span
+                    ><h5>Requests</h5></span
                   >
                 </div>
               </a>
@@ -462,7 +462,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     $membersCount = count($JSON['members']);
 
     echo "Members Online: <strong>" . $membersCount . "</strong>";
-   ?><br><div>
+   ?><br><div id="smthn">
               
               </div>
             </ul>
