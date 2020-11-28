@@ -265,7 +265,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </nav>
     </header>
 
-    <main>
+    <main class="" style="background:#23272A;">
       <div class="row">
         <div class="col s6">
           <div style="padding: 35px;" align="center" class="card">
