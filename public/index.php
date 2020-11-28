@@ -266,8 +266,8 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     </header>
 
     <main class="" style="background:#23272A;">
-      <div class="row">
-        <div class="col s6">
+      <div class="row alt">
+        <div class="col s6 alt">
           <div style="padding: 35px;" align="center" class="card">
             <div class="row">
               <div class="left card-title">
@@ -276,7 +276,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             </div>
 
             <div class="row">
-              <a href="#!">
+              <a href="#!" class=>
                 <div
                   style="padding: 30px;"
                   class="grey lighten-3 col s5 waves-effect"
@@ -623,7 +623,7 @@ body {
     background-color:#23272A;
   }
   
-  .col .s5{
+  .alt{
     background-color:#2C2F33;
   }
 </style>
