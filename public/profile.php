@@ -115,7 +115,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
         </div>
       </li>
       <li id="active">
-        <a class="waves-effect" href="#!"><b>Dashboard</b></a>
+        <a class="waves-effect" href="/"><b>Dashboard</b></a>
       </li>
 
       <ul class="collapsible" data-collapsible="accordion">
@@ -267,8 +267,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
                   class="alt"
                 >
                   <code class="text-whiter">
-                    <pre>Username: <?php echo $user->username ?><br>Discriminator: <?php echo $user->discriminator ?><br>Avatar: <a href="<?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?>" target="_blank"><?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?><br><?php echo $user->?></a>
-                    </pre>
+                    <pre>Username: <?php echo $user->username ?><br>Discriminator: <?php echo $user->discriminator ?><br>ID: <?php echo $user->id ?><br>Avatar: <a href="<?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?>" target="_blank"><?php echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png' ?></a></pre>
                   </code>
                 </div>
               </div>
