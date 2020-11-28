@@ -135,7 +135,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             <b>Users</b>
           </div>
           <div id="dash_users_body" class="collapsible-body">
-            <ul>
+            <ul class="lighter-alt">
               <li id="users_seller">
                 <a class="waves-effect" style="text-decoration: none;" href="#!"
                   >Seller</a
@@ -254,7 +254,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </nav>
 
       <nav>
-        <div class="nav-wrapper blurple darken-2">
+        <div class="nav-wrapper blurple darker-blurple">
           <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
           <a class="breadcrumb" href="#!">Index</a>
 
@@ -467,15 +467,13 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           </div>
         </div>
       </div>
-      <div class="footer-copyright">
+      <div class="footer-copyright" style="color:white!important;">
         <div class="container">
           <span
-            >Made By
+            >Made using
             <a
               style="font-weight: bold;"
-              href="https://github.com/piedcipher"
-              target="_blank"
-              >Tirth Patel</a
+              >PHP</a
             ></span
           >
         </div>
@@ -641,6 +639,11 @@ body {
   }
   
   * .darker-blurple{
-    background-color:#5f71b0!important;
+    background-color:#6376b8!important;
+  }
+  
+  * .lighter-alt{
+    background-color:#23272A!important;
+    color:white!important;
   }
 </style>
