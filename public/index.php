@@ -459,9 +459,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     $jsonIn = file_get_contents('https://discord.com/api/guilds/772550849893105686/widget.json');
     $JSON = json_decode($jsonIn, true);
 
-    $membersCount = count($JSON['channels']);
+    $membersCount = $JSON['members'];
 
-    echo "Verification Channels: <strong>" . $membersCount . "</strong>";
+    echo $membersCount
    ?>
             </ul>
           </div>
