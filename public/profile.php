@@ -209,9 +209,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     </ul>
     <header>
       <ul class="dropdown-content" id="user_dropdown">
-        <li><a class="white-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
+        <li><a class="black-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
         
-        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='white-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
+        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='black-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
 
       <nav class="blurple" role="navigation">
@@ -252,10 +252,8 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </nav>
     </header>
 
-    <main class="">
-      <div class="row">
-        <div class="s6">
-          <div style="padding: 35px;" align="center" class="card not-black">
+    <main>
+          <div style="padding: 35px;" class="card not-black">
             <div class="row">
               <div class="left card-title" style="color:white;">
                 <b>Profile Information</b>
@@ -263,27 +261,19 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             </div>
 
             <div class="row">
-              <div href="#!" class="alt">
+              <div class="alt">
                 <div
                   style="padding: 30px;"
-                  class="alt waves-effect"
+                  class="alt"
                 >
-                  <pre>
-                    
-                  </pre>
+                  <code class="text-whiter">
+                    <pre>Username: <?php echo $user->username ?><br>Discriminator: <?php echo $user->discriminator ?><br>Full String: <?php echo $user->avatar ?>
+                    </pre>
+                  </code>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      <div
-        class="fixed-action-btn click-to-toggle"
-        style="bottom: 45px; right: 24px;"
-      >
-        <a class="btn-floating btn-large pink waves-effect waves-light">
-          <i class="large material-icons">add</i>
-        </a>
-      </div>
     </main>
 
     <footer class="blurple page-footer">

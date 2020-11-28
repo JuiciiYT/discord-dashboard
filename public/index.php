@@ -209,9 +209,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     </ul>
     <header>
       <ul class="dropdown-content" id="user_dropdown">
-        <li><a class="white-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
+        <li><a class="black-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
         
-        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='white-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
+        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='black-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
 
       <nav class="blurple" role="navigation">
