@@ -265,12 +265,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </nav>
     </header>
 
-    <main class="" style="background:#23272A;">
+    <main class="">
       <div class="row">
         <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
+          <div style="padding: 35px;" align="center" class="card not-black">
             <div class="row">
-              <div class="left card-title">
+              <div class="left card-title" style="color:white;">
                 <b>User Information</b>
               </div>
             </div>
@@ -314,7 +314,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
         <div class="col s6">
           <div style="padding: 35px;" align="center" class="card">
             <div class="row">
-              <div class="left card-title">
+              <div class="left card-title" >
                 <b>Midi Management</b>
               </div>
             </div>
@@ -620,5 +620,17 @@ body {
   }
   body, .alt{
     background-color:#2C2F33;
+  }
+  
+  * .card{
+    background:#23272A!important;
+  }
+  
+  * .s5:hover{
+    background:#7289DA!important;
+  }
+  
+  * .card-title{
+    color:white!important;
   }
 </style>
