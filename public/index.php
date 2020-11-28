@@ -437,7 +437,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           </div>
         </div>
       </div>
-
+<!-- #23272A -->
       <div
         class="fixed-action-btn click-to-toggle"
         style="bottom: 45px; right: 24px;"
@@ -617,5 +617,13 @@ body {
     margin-top:5%;
               width: 100;
               height:100;
+  }
+  
+  body{
+    background-color:#23272A;
+  }
+  
+  .col .s5{
+    background-color:#2C2F33;
   }
 </style>
