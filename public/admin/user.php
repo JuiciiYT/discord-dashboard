@@ -1,5 +1,14 @@
 
 <?php
+
+include __DIR__.'/vendor/autoload.php';
+
+use RestCord\DiscordClient;
+
+$discord = new DiscordClient(['token' => 'Nzc0MjczNTYzOTMzODAyNTM3.X6VYcg.DT0oltV28RN_cpKE7CfcN3iD2Pw']); // Token is required
+
+var_dump($discord->guild->getGuild(['guild.id' => ""]));
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('max_execution_time', 300); //300 seconds = 5 minutes. In case if your CURL is slow and is loading too much (Can be IPv6 problem)
@@ -209,7 +218,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     </ul>
     <header>
       <ul class="dropdown-content" id="user_dropdown">
-        <li><a class="black-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '/profile.php';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
+        <li><a class="black-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
         
         <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='black-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
@@ -245,196 +254,36 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       <nav>
         <div class="nav-wrapper blurple darker-blurple">
           <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
-          <a class="breadcrumb" href="#!">Index</a>
+          <a class="breadcrumb" href="#!">Profile</a>
 
           <div style="margin-right: 20px;" id="timestamp" class="right"></div>
         </div>
       </nav>
     </header>
 
-    <main class="">
-      <div class="row">
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card not-black">
+    <main>
+          <div style="padding: 35px;" class="card not-black">
             <div class="row">
               <div class="left card-title" style="color:white;">
-                <b>User Information</b>
+                <b>Profile Information</b>
               </div>
             </div>
 
             <div class="row">
-              <a href="#!" class="alt">
+              <div class="alt">
                 <div
                   style="padding: 30px;"
-                  class="alt col s5 waves-effect"
+                  class="alt"
                 >
-                  <i
-                    class="white-text text-lighten-1 large icon material-icons"
-                    >people</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Users</h5></span
-                  >
+                  <code class="text-whiter">
+                    <pre></pre>
+                  </code>
                 </div>
-              </a>
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!" class="alt">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i
-                    class="white-text text-lighten-1 large icon material-icons"
-                    >people</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Customer</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title" >
-                <b>Midi Management</b>
               </div>
             </div>
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >store</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Product</h5></span
-                  >
-                </div>
-              </a>
-
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="https://panel.helper.gg/" target="_blank">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >assignment</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Requests</h5></span
-                  >
-                </div>
-              </a>
-            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title">
-                <b>Brand Management</b>
-              </div>
-            </div>
-
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >local_offer</i
-                  >
-                  <span class="white-text text-lighten-1"><h5>Brand</h5></span>
-                </div>
-              </a>
-
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >loyalty</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Sub Brand</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col s6">
-          <div style="padding: 35px;" align="center" class="card">
-            <div class="row">
-              <div class="left card-title">
-                <b>Category Management</b>
-              </div>
-            </div>
-            <div class="row">
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >view_list</i
-                  >
-                  <span class="white-text text-lighten-1"
-                    ><h5>Category</h5></span
-                  >
-                </div>
-              </a>
-              <div class="col s1">&nbsp;</div>
-              <div class="col s1">&nbsp;</div>
-
-              <a href="#!">
-                <div
-                  style="padding: 30px;"
-                  class="alt col s5 waves-effect"
-                >
-                  <i class="white-text text-lighten-1 large material-icons"
-                    >view_list</i
-                  >
-                  <span class="truncate white-text text-lighten-1"
-                    ><h5>Sub Category</h5></span
-                  >
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-<!-- #23272A -->
-      <div
-        class="fixed-action-btn click-to-toggle"
-        style="bottom: 45px; right: 24px;"
-      >
-        <a class="btn-floating btn-large pink waves-effect waves-light">
-          <i class="large material-icons">add</i>
-        </a>
-      </div>
     </main>
-<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <footer class="blurple page-footer">
       <div class="container">
         <div class="row">
