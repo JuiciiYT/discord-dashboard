@@ -222,9 +222,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
 
     <header>
       <ul class="dropdown-content" id="user_dropdown">
-        <li><a class="indigo-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
+        <li><a class="white-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
         
-        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='indigo-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
+        <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='white-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
 
       <nav class="indigo" role="navigation">
@@ -266,8 +266,8 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     </header>
 
     <main class="" style="background:#23272A;">
-      <div class="row alt">
-        <div class="col s6 alt">
+      <div class="row">
+        <div class="col s6">
           <div style="padding: 35px;" align="center" class="card">
             <div class="row">
               <div class="left card-title">
@@ -276,16 +276,16 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             </div>
 
             <div class="row">
-              <a href="#!" class=>
+              <a href="#!" class="alt">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
                   <i
-                    class="indigo-text text-lighten-1 large icon material-icons"
+                    class="white-text text-lighten-1 large icon material-icons"
                     >people</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Users</h5></span
                   >
                 </div>
@@ -293,16 +293,16 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <div class="col s1">&nbsp;</div>
               <div class="col s1">&nbsp;</div>
 
-              <a href="#!">
+              <a href="#!" class="alt">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
                   <i
-                    class="indigo-text text-lighten-1 large icon material-icons"
+                    class="white-text text-lighten-1 large icon material-icons"
                     >people</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Customer</h5></span
                   >
                 </div>
@@ -322,12 +322,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="#!">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >store</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Product</h5></span
                   >
                 </div>
@@ -339,12 +339,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="https://panel.helper.gg/" target="_blank">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >assignment</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Requests</h5></span
                   >
                 </div>
@@ -367,12 +367,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="#!">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >local_offer</i
                   >
-                  <span class="indigo-text text-lighten-1"><h5>Brand</h5></span>
+                  <span class="white-text text-lighten-1"><h5>Brand</h5></span>
                 </div>
               </a>
 
@@ -382,12 +382,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="#!">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >loyalty</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Sub Brand</h5></span
                   >
                 </div>
@@ -407,12 +407,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="#!">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >view_list</i
                   >
-                  <span class="indigo-text text-lighten-1"
+                  <span class="white-text text-lighten-1"
                     ><h5>Category</h5></span
                   >
                 </div>
@@ -423,12 +423,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
               <a href="#!">
                 <div
                   style="padding: 30px;"
-                  class="grey lighten-3 col s5 waves-effect"
+                  class="alt col s5 waves-effect"
                 >
-                  <i class="indigo-text text-lighten-1 large material-icons"
+                  <i class="white-text text-lighten-1 large material-icons"
                     >view_list</i
                   >
-                  <span class="truncate indigo-text text-lighten-1"
+                  <span class="truncate white-text text-lighten-1"
                     ><h5>Sub Category</h5></span
                   >
                 </div>
@@ -618,12 +618,7 @@ body {
               width: 100;
               height:100;
   }
-  
-  body{
-    background-color:#23272A;
-  }
-  
-  .alt{
+  body, .alt{
     background-color:#2C2F33;
   }
 </style>
