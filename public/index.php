@@ -1,3 +1,4 @@
+
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -77,6 +78,13 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- import js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script type="module">
+      import discord.js from 'https://cdn.skypack.dev/discord.js@12.5.1';
+      const Discord = require('discord.js')
+      const client = new Discord.Client()
+      document.getElementById("smthn").innerHTML = client.guilds.cache.size
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
     <script src="/script.js"></script>
     <script src="/discord"></script>
@@ -454,7 +462,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     $membersCount = count($JSON['members']);
 
     echo "Members Online: <strong>" . $membersCount . "</strong>";
-   ?><br>
+   ?><br><div>
+              
+              </div>
             </ul>
           </div>
         </div>
