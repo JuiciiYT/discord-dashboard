@@ -108,9 +108,9 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     <link rel="icon" href="https://cdn.glitch.com/dfd04d00-93a4-44c9-84e6-356d7a2892f1%2Fqueue_music-white-36dp.svg?v=1604665823533">
   </head>
   <body>
-    <ul id="slide-out" class="side-nav fixed z-depth-2">
+    <ul id="slide-out" class="side-nav fixed z-depth-2 alt" style="color:white!important;">
       <li class="center no-padding">
-        <div class="indigo darken-2 white-text" style="height: 180px;">
+        <div class="blurple ark-blurple white-text" style="height: 180px;">
           <div class="row">
             <img
               src="<?php $user = apiRequest($apiURLBase); echo 'https://cdn.discordapp.com/avatars/' . $user->id . '/' . $user->avatar . '.png';?>"
@@ -125,8 +125,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           </div>
         </div>
       </li>
-
-      <li id="dash_dashboard">
+      <li id="active">
         <a class="waves-effect" href="#!"><b>Dashboard</b></a>
       </li>
 
@@ -219,7 +218,6 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
         </li>
       </ul>
     </ul>
-
     <header>
       <ul class="dropdown-content" id="user_dropdown">
         <li><a class="white-text" href="<?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo '#!';}else { echo '?action=login';}?>"><?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo 'Profile';}else { echo 'Login';}?></a></li>
@@ -227,7 +225,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
         <?php if(session('access_token')) { $user = apiRequest($apiURLBase);echo "<li><a class='white-text' href='?action=logout'>Logout</a></li>";}else { echo "";}?>
       </ul>
 
-      <nav class="indigo" role="navigation">
+      <nav class="blurple" role="navigation">
         <div class="nav-wrapper">
           <a
             data-activates="slide-out"
@@ -256,7 +254,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </nav>
 
       <nav>
-        <div class="nav-wrapper indigo darken-2">
+        <div class="nav-wrapper blurple darken-2">
           <a style="margin-left: 20px;" class="breadcrumb" href="#!">Admin</a>
           <a class="breadcrumb" href="#!">Index</a>
 
@@ -448,7 +446,7 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
       </div>
     </main>
 
-    <footer class="indigo page-footer">
+    <footer class="blurple page-footer">
       <div class="container">
         <div class="row">
           <div class="col s12">
@@ -632,5 +630,17 @@ body {
   
   * .card-title{
     color:white!important;
+  }
+  
+  * b{
+    color:white!important;
+  }
+  
+  * .blurple{
+    background-color:#7289DA!important;
+  }
+  
+  * .darker-blurple{
+    background-color:#5f71b0!important;
   }
 </style>
