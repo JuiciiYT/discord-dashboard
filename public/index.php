@@ -78,21 +78,10 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- import js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-    <script type="module">
-      import discordJs from 'https://cdn.skypack.dev/discord.js@12.5.1';
-      const Discord = require('discordJs')
-      const client = new Discord.Client()
-      document.getElementById("smthn").innerHTML = client.guilds.cache.size
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
-    <script src="/script.js"></script>
-    <script src="/discord"></script>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 
     <!-- import css-->
-    <link rel="stylesheet" href="../style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"
@@ -134,16 +123,16 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
           <div id="dash_users_header" class="collapsible-header waves-effect">
             <b>Users</b>
           </div>
-          <div id="dash_users_body" class="collapsible-body">
-            <ul class="lighter-alt">
+          <div class="collapsible-body text-whiter" style="color:white!important;">
+            <ul class="lighter-alt" style="color:white!important;">
               <li id="users_seller">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Seller</a
                 >
               </li>
 
               <li id="users_customer">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Customer</a
                 >
               </li>
@@ -159,12 +148,12 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             <b>Products</b>
           </div>
           <div id="dash_products_body" class="collapsible-body">
-            <ul>
+            <ul class="lighter-alt">
               <li id="products_product">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Products</a
                 >
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Orders</a
                 >
               </li>
@@ -180,15 +169,15 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             <b>Categories</b>
           </div>
           <div id="dash_categories_body" class="collapsible-body">
-            <ul>
+            <ul class="lighter-alt">
               <li id="categories_category">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Category</a
                 >
               </li>
 
               <li id="categories_sub_category">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Sub Category</a
                 >
               </li>
@@ -201,15 +190,15 @@ function apiRequest($url, $post=FALSE, $headers=array()) {
             <b>Brands</b>
           </div>
           <div id="dash_brands_body" class="collapsible-body">
-            <ul>
+            <ul class="lighter-alt">
               <li id="brands_brand">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Brand</a
                 >
               </li>
 
               <li id="brands_sub_brand">
-                <a class="waves-effect" style="text-decoration: none;" href="#!"
+                <a class="waves-effect text-whiter" style="text-decoration: none;" href="#!"
                   >Sub Brand</a
                 >
               </li>
@@ -644,6 +633,9 @@ body {
   
   * .lighter-alt{
     background-color:#23272A!important;
+  }
+  
+  * .text-whiter{
     color:white!important;
   }
 </style>
